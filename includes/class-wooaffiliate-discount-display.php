@@ -2,16 +2,9 @@
 class WooAffiliate_Discount_Display {
 
     public static function init() {
-        // Display affiliate discount info in cart
         add_action('woocommerce_cart_totals_before_order_total', [__CLASS__, 'display_affiliate_discount_cart']);
-
-        // Display affiliate discount info in checkout
         add_action('woocommerce_review_order_before_order_total', [__CLASS__, 'display_affiliate_discount_checkout']);
-
-        // Add discount notice on cart page
         add_action('woocommerce_before_cart', [__CLASS__, 'display_discount_notice']);
-
-        // Add discount notice on checkout page
         add_action('woocommerce_before_checkout_form', [__CLASS__, 'display_discount_notice']);
     }
 
@@ -66,11 +59,9 @@ class WooAffiliate_Discount_Display {
     }
 
     public static function get_applied_discount_percentage() {
-        // Default discount from plugin settings
         $default_discount = get_option('wooaffiliate_discount_percentage', 5);
         $discount_percentage = $default_discount;
 
-        // Check cart items for category-specific discounts
         if (!is_null(WC()->cart)) {
             foreach (WC()->cart->get_cart() as $cart_item) {
                 $product_id = $cart_item['product_id'];
@@ -90,5 +81,4 @@ class WooAffiliate_Discount_Display {
     }
 }
 
-// Initialize the discount display functionality
 WooAffiliate_Discount_Display::init();

@@ -2,18 +2,15 @@
 class WooAffiliate_Category_Discounts {
 
     public static function init() {
-        // Add category-specific settings
         add_action('product_cat_add_form_fields', [__CLASS__, 'add_category_fields']);
         add_action('product_cat_edit_form_fields', [__CLASS__, 'edit_category_fields']);
         add_action('edited_product_cat', [__CLASS__, 'save_category_fields']);
         add_action('create_product_cat', [__CLASS__, 'save_category_fields']);
 
-        // Apply category-specific discounts
         add_filter('woocommerce_get_price_html', [__CLASS__, 'apply_category_discount'], 10, 2);
     }
 
     public static function add_category_fields() {
-        // Get default values from settings
         $default_commission = get_option('wooaffiliate_commission_percentage', 10);
         $default_discount = get_option('wooaffiliate_discount_percentage', 5);
 
@@ -36,11 +33,9 @@ class WooAffiliate_Category_Discounts {
     }
 
     public static function edit_category_fields($term) {
-        // Get saved category values
         $commission_value = get_term_meta($term->term_id, 'wooaffiliate_commission_percentage', true);
         $discount_value = get_term_meta($term->term_id, 'wooaffiliate_discount_percentage', true);
 
-        // Get default values from settings
         $default_commission = get_option('wooaffiliate_commission_percentage', 10);
         $default_discount = get_option('wooaffiliate_discount_percentage', 5);
 
@@ -102,9 +97,6 @@ class WooAffiliate_Category_Discounts {
         return $price;
     }
 
-    /**
-     * Get category-specific commission percentage for a product
-     */
     public static function get_category_commission_percentage($product_id) {
         $product = wc_get_product($product_id);
         if (!$product) {
@@ -124,9 +116,6 @@ class WooAffiliate_Category_Discounts {
         return $default_commission;
     }
 
-    /**
-     * Get category-specific discount percentage for a product
-     */
     public static function get_category_discount_percentage($product_id) {
         $product = wc_get_product($product_id);
         if (!$product) {
@@ -147,5 +136,4 @@ class WooAffiliate_Category_Discounts {
     }
 }
 
-// Initialize the category discount functionality
 WooAffiliate_Category_Discounts::init();

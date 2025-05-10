@@ -2,10 +2,7 @@
 class WooAffiliate_Admin {
 
     public static function init() {
-        // Add submenu page to WooAffiliate menu
         add_action('admin_menu', [__CLASS__, 'register_admin_submenu'], 11);
-
-        // Handle admin actions
         add_action('admin_init', [__CLASS__, 'handle_admin_actions']);
     }
 
@@ -21,22 +18,18 @@ class WooAffiliate_Admin {
     }
 
     public static function commissions_page() {
-        // Check if a withdrawal status update is requested
         if (isset($_GET['action']) && $_GET['action'] == 'complete_withdrawal' && isset($_GET['user_id']) && isset($_GET['request_id'])) {
             $user_id = intval($_GET['user_id']);
             $request_id = sanitize_text_field($_GET['request_id']);
 
-            // Mark the withdrawal as completed
             self::mark_withdrawal_completed($user_id, $request_id);
 
-            // Show success notice
             echo '<div class="notice notice-success is-dismissible"><p>' . __('Withdrawal marked as completed.', 'wooaffiliate') . '</p></div>';
         }
 
         echo '<div class="wrap">';
         echo '<h1>' . __('Woo Affiliate Commissions', 'wooaffiliate') . '</h1>';
 
-        // Tabs for different views
         $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'commissions';
         echo '<h2 class="nav-tab-wrapper">';
         echo '<a href="?page=wooaffiliate-commissions&tab=commissions" class="nav-tab ' . ($current_tab == 'commissions' ? 'nav-tab-active' : '') . '">' . __('Commissions', 'wooaffiliate') . '</a>';
@@ -53,7 +46,6 @@ class WooAffiliate_Admin {
     }
 
     public static function display_commissions_table() {
-        // Get all users with commission data
         $users_with_commissions = self::get_users_with_commissions();
 
         echo '<table class="wp-list-table widefat fixed striped">';
@@ -85,7 +77,6 @@ class WooAffiliate_Admin {
     }
 
     public static function display_withdrawals_table() {
-        // Get all withdrawal requests
         $withdrawal_requests = self::get_withdrawal_requests();
 
         echo '<table class="wp-list-table widefat fixed striped">';
@@ -139,8 +130,6 @@ class WooAffiliate_Admin {
     }
 
     public static function get_withdrawal_requests() {
-        // Placeholder - in a real implementation, this would fetch from a withdrawals table
-        // For now, we'll use a mock implementation
         $withdrawals = get_option('wooaffiliate_withdrawal_requests', array());
 
         if (empty($withdrawals)) {
@@ -180,5 +169,4 @@ class WooAffiliate_Admin {
     }
 }
 
-// Initialize the admin functionality
 WooAffiliate_Admin::init();

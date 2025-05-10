@@ -2,13 +2,8 @@
 class WooAffiliate_Init {
 
     public static function init() {
-        // Load text domain for translations
         load_plugin_textdomain('wooaffiliate', false, dirname(plugin_basename(__FILE__)) . '/languages');
-
-        // Register admin menu
         add_action('admin_menu', [__CLASS__, 'register_admin_menu']);
-
-        // Register settings
         add_action('admin_init', [__CLASS__, 'register_settings']);
     }
 

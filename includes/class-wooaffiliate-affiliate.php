@@ -2,13 +2,8 @@
 class WooAffiliate_Affiliate {
 
     public static function init() {
-        // Hook into WooCommerce order completion
         add_action('woocommerce_thankyou', [__CLASS__, 'track_affiliate_commission']);
-
-        // Add affiliate link to My Account page
         add_action('woocommerce_account_dashboard', [__CLASS__, 'display_affiliate_link']);
-
-        // Add scripts and styles for affiliate functionality
         add_action('wp_enqueue_scripts', [__CLASS__, 'enqueue_scripts']);
     }
 
@@ -18,30 +13,23 @@ class WooAffiliate_Affiliate {
             return;
         }
 
-        // Check for referral cookie
         if (isset($_COOKIE['wooaffiliate_referral'])) {
             $referrer_id = intval($_COOKIE['wooaffiliate_referral']);
             $total_commission = 0;
 
-            // Calculate commission for each item based on its category
             foreach ($order->get_items() as $item) {
                 $product_id = $item->get_product_id();
                 $product_total = $item->get_total();
 
-                // Get category-specific commission percentage for this product
                 $commission_percentage = WooAffiliate_Category_Discounts::get_category_commission_percentage($product_id);
-
-                // Calculate commission for this item
                 $item_commission = ($product_total * $commission_percentage) / 100;
                 $total_commission += $item_commission;
             }
 
-            // Save commission data
             $current_commission = get_user_meta($referrer_id, 'wooaffiliate_commission', true);
             $current_commission = $current_commission ? $current_commission : 0;
             update_user_meta($referrer_id, 'wooaffiliate_commission', $current_commission + $total_commission);
 
-            // Optionally, store detailed commission data for reporting
             $commission_data = get_user_meta($referrer_id, 'wooaffiliate_commission_history', true);
             $commission_data = $commission_data ? $commission_data : array();
 
@@ -111,5 +99,4 @@ class WooAffiliate_Affiliate {
     }
 }
 
-// Initialize the affiliate functionality
 WooAffiliate_Affiliate::init();
