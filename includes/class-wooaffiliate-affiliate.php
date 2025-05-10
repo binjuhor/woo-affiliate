@@ -21,14 +21,37 @@ class WooAffiliate_Affiliate {
         // Check for referral cookie
         if (isset($_COOKIE['wooaffiliate_referral'])) {
             $referrer_id = intval($_COOKIE['wooaffiliate_referral']);
+            $total_commission = 0;
 
-            // Calculate commission
-            $commission_percentage = get_option('wooaffiliate_commission_percentage', 10);
-            $commission = ($order->get_total() * $commission_percentage) / 100;
+            // Calculate commission for each item based on its category
+            foreach ($order->get_items() as $item) {
+                $product_id = $item->get_product_id();
+                $product_total = $item->get_total();
 
-            // Save commission data (example: store in user meta)
+                // Get category-specific commission percentage for this product
+                $commission_percentage = WooAffiliate_Category_Discounts::get_category_commission_percentage($product_id);
+
+                // Calculate commission for this item
+                $item_commission = ($product_total * $commission_percentage) / 100;
+                $total_commission += $item_commission;
+            }
+
+            // Save commission data
             $current_commission = get_user_meta($referrer_id, 'wooaffiliate_commission', true);
-            update_user_meta($referrer_id, 'wooaffiliate_commission', $current_commission + $commission);
+            $current_commission = $current_commission ? $current_commission : 0;
+            update_user_meta($referrer_id, 'wooaffiliate_commission', $current_commission + $total_commission);
+
+            // Optionally, store detailed commission data for reporting
+            $commission_data = get_user_meta($referrer_id, 'wooaffiliate_commission_history', true);
+            $commission_data = $commission_data ? $commission_data : array();
+
+            $commission_data[] = array(
+                'order_id' => $order_id,
+                'date' => current_time('timestamp'),
+                'amount' => $total_commission
+            );
+
+            update_user_meta($referrer_id, 'wooaffiliate_commission_history', $commission_data);
         }
     }
 

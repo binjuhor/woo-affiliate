@@ -16,12 +16,24 @@ class WooAffiliate_Discount_Calculator {
             return;
         }
 
-        // Get discount percentage
-        $discount_percentage = WooAffiliate_Discount_Display::get_applied_discount_percentage();
+        $total_discount = 0;
 
-        if ($discount_percentage > 0) {
-            $discount_amount = $cart->get_subtotal() * ($discount_percentage / 100) * -1; // Negative amount for discount
-            $cart->add_fee(__('Affiliate Discount', 'wooaffiliate'), $discount_amount, true);
+        // Calculate discount for each cart item based on its category
+        foreach ($cart->get_cart() as $cart_item) {
+            $product_id = $cart_item['product_id'];
+            $product_subtotal = $cart_item['line_subtotal'];
+
+            // Get category-specific discount percentage for this product
+            $discount_percentage = WooAffiliate_Category_Discounts::get_category_discount_percentage($product_id);
+
+            // Calculate discount amount for this item
+            $item_discount = ($product_subtotal * $discount_percentage) / 100;
+            $total_discount += $item_discount;
+        }
+
+        if ($total_discount > 0) {
+            // Apply negative fee (discount)
+            $cart->add_fee(__('Affiliate Discount', 'wooaffiliate'), $total_discount * -1, true);
         }
     }
 }
