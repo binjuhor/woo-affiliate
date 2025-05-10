@@ -47,22 +47,95 @@ class WooAffiliate_Commission {
         $commission = get_user_meta($user_id, 'wooaffiliate_commission', true);
         $commission = $commission ? $commission : 0;
 
+        // Check if user has pending withdrawal requests
+        $has_pending_withdrawal = self::has_pending_withdrawal($user_id);
+
         echo '<h2>' . __('My Commissions', 'wooaffiliate') . '</h2>';
         echo '<p>' . sprintf(__('Your current commission balance is: %s', 'wooaffiliate'), wc_price($commission)) . '</p>';
 
-        echo '<form method="post">';
-        echo '<input type="hidden" name="wooaffiliate_action" value="convert_to_discount">';
-        wp_nonce_field('wooaffiliate_action', 'wooaffiliate_nonce');
-        echo '<button type="submit" class="button">' . __('Convert to Discount Code', 'wooaffiliate') . '</button>';
-        echo '</form>';
+        // Only show buttons if commission amount is greater than 0
+        if ($commission > 0) {
+            // Show convert to discount button only if there's no pending withdrawal
+            if (!$has_pending_withdrawal) {
+                echo '<form method="post">';
+                echo '<input type="hidden" name="wooaffiliate_action" value="convert_to_discount">';
+                wp_nonce_field('wooaffiliate_action', 'wooaffiliate_nonce');
+                echo '<button type="submit" class="button">' . __('Convert to Discount Code', 'wooaffiliate') . '</button>';
+                echo '</form>';
+            } else {
+                echo '<p class="wooaffiliate-notice">' . __('You cannot convert to discount code while a withdrawal request is pending.', 'wooaffiliate') . '</p>';
+            }
 
-        echo '<form method="post">';
-        echo '<input type="hidden" name="wooaffiliate_action" value="request_withdrawal">';
-        wp_nonce_field('wooaffiliate_action', 'wooaffiliate_nonce');
-        echo '<button type="submit" class="button">' . __('Request Withdrawal', 'wooaffiliate') . '</button>';
-        echo '</form>';
+            // Show withdrawal button only if there's no pending withdrawal
+            if (!$has_pending_withdrawal) {
+                echo '<form method="post" style="margin-top: 10px;">';
+                echo '<input type="hidden" name="wooaffiliate_action" value="request_withdrawal">';
+                wp_nonce_field('wooaffiliate_action', 'wooaffiliate_nonce');
+                echo '<button type="submit" class="button">' . __('Request Withdrawal', 'wooaffiliate') . '</button>';
+                echo '</form>';
+            } else {
+                echo '<p class="wooaffiliate-notice">' . __('You already have a pending withdrawal request.', 'wooaffiliate') . '</p>';
+            }
+        } else {
+            echo '<p>' . __('You do not have any commission available for withdrawal or discount conversion.', 'wooaffiliate') . '</p>';
+        }
+
+        // Display pending withdrawal requests for this user
+        self::display_user_withdrawal_requests($user_id);
 
         self::handle_post_actions($user_id, $commission);
+    }
+
+    /**
+     * Check if user has pending withdrawal requests
+     */
+    public static function has_pending_withdrawal($user_id) {
+        $withdrawals = get_option('wooaffiliate_withdrawal_requests', array());
+
+        if (isset($withdrawals[$user_id])) {
+            foreach ($withdrawals[$user_id] as $request) {
+                if ($request['status'] === 'pending') {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Display user's withdrawal requests
+     */
+    public static function display_user_withdrawal_requests($user_id) {
+        $withdrawals = get_option('wooaffiliate_withdrawal_requests', array());
+
+        if (!isset($withdrawals[$user_id]) || empty($withdrawals[$user_id])) {
+            return;
+        }
+
+        echo '<h3>' . __('Your Withdrawal Requests', 'wooaffiliate') . '</h3>';
+        echo '<table class="woocommerce-orders-table shop_table shop_table_responsive">';
+        echo '<thead><tr>';
+        echo '<th>' . __('Request ID', 'wooaffiliate') . '</th>';
+        echo '<th>' . __('Amount', 'wooaffiliate') . '</th>';
+        echo '<th>' . __('Date', 'wooaffiliate') . '</th>';
+        echo '<th>' . __('Status', 'wooaffiliate') . '</th>';
+        echo '</tr></thead>';
+        echo '<tbody>';
+
+        foreach ($withdrawals[$user_id] as $request_id => $request) {
+            echo '<tr>';
+            echo '<td>' . $request_id . '</td>';
+            echo '<td>' . wc_price($request['amount']) . '</td>';
+            echo '<td>' . date_i18n(get_option('date_format'), $request['date']) . '</td>';
+            echo '<td>' . ($request['status'] === 'completed' ?
+                '<span class="wooaffiliate-status-completed">' . __('Completed', 'wooaffiliate') . '</span>' :
+                '<span class="wooaffiliate-status-pending">' . __('Pending', 'wooaffiliate') . '</span>'
+            ) . '</td>';
+            echo '</tr>';
+        }
+
+        echo '</tbody></table>';
     }
 
     public static function handle_post_actions($user_id, $commission) {
@@ -86,12 +159,20 @@ class WooAffiliate_Commission {
             $coupon->set_amount($amount);
             $coupon->set_discount_type('fixed_cart');
             $coupon->set_individual_use(true);
+
+            // Set usage limits to 1 to ensure the coupon can be used only once
+            $coupon->set_usage_limit(1);
+            $coupon->set_usage_limit_per_user(1);
+
+            // Set expiration date (optional, 30 days from now)
+            $coupon->set_date_expires(strtotime('+30 days'));
+
             $coupon->save();
 
             // Reset commission
             update_user_meta($user_id, 'wooaffiliate_commission', 0);
 
-            echo '<p>' . sprintf(__('Discount code %s created for %s', 'wooaffiliate'), $discount_code, wc_price($amount)) . '</p>';
+            echo '<p>' . sprintf(__('Discount code %s created for %s. This code can only be used once and will expire in 30 days.', 'wooaffiliate'), '<strong>' . $discount_code . '</strong>', wc_price($amount)) . '</p>';
         } elseif ($action === 'request_withdrawal' && $commission > 0) {
             // Store withdrawal request in database
             $request_id = 'WITHDRAW-' . strtoupper(wp_generate_password(6, false));
