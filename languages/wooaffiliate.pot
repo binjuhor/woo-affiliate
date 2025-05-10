@@ -2,231 +2,353 @@
 # This file is distributed under the same license as the Woo Affiliate plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Woo Affiliate 1.0.0\n"
+"Project-Id-Version: Woo Affiliate 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woo-affiliate\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-10T10:00:00+00:00\n"
+"POT-Creation-Date: 2025-05-10T13:10:20+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.7.1\n"
+"X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: wooaffiliate\n"
 
-#: includes/class-wooaffiliate-init.php:22
-#: includes/class-wooaffiliate-init.php:23
+#. Plugin Name of the plugin
+#: woo-affiliate.php
+#: includes/class-wooaffiliate-init.php:12
+#: includes/class-wooaffiliate-init.php:13
 msgid "Woo Affiliate"
 msgstr ""
 
-#: includes/class-wooaffiliate-init.php:32
-msgid "Woo Affiliate Settings"
+#. Description of the plugin
+#: woo-affiliate.php
+msgid "Affiliate plugin for WooCommerce."
 msgstr ""
 
-#: includes/class-wooaffiliate-init.php:47
-msgid "General Settings"
+#. Author of the plugin
+#: woo-affiliate.php
+msgid "Binjuhor"
 msgstr ""
 
-#: includes/class-wooaffiliate-init.php:54
-msgid "Commission Percentage"
+#. Author URI of the plugin
+#: woo-affiliate.php
+msgid "https://binjuhor.com"
 msgstr ""
 
-#: includes/class-wooaffiliate-init.php:62
-msgid "Discount Percentage"
-msgstr ""
-
-#: includes/class-wooaffiliate-init.php:70
-msgid "Cookie Duration (days)"
-msgstr ""
-
-#: includes/class-wooaffiliate-init.php:89
-msgid "Select categories where affiliate discounts apply."
-msgstr ""
-
-#: includes/class-wooaffiliate-affiliate.php:53
-msgid "Your Affiliate Link"
-msgstr ""
-
-#: includes/class-wooaffiliate-affiliate.php:54
-msgid "Share this link with friends. When they make a purchase, you'll earn commission and they'll get a discount!"
-msgstr ""
-
-#: includes/class-wooaffiliate-affiliate.php:57
-msgid "Copy to Clipboard"
-msgstr ""
-
-#: includes/class-wooaffiliate-affiliate.php:58
-msgid "Copied!"
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:21
-msgid "My Commissions"
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:62
-msgid "Your current commission balance is: %s"
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:71
-msgid "Convert to Discount Code"
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:73
-msgid "You cannot convert to discount code while a withdrawal request is pending."
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:80
-msgid "Request Withdrawal"
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:82
-msgid "You already have a pending withdrawal request."
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:85
-msgid "You do not have any commission available for withdrawal or discount conversion."
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:110
-msgid "Your Withdrawal Requests"
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:113
-msgid "Request ID"
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:114
-msgid "Amount"
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:115
-msgid "Date"
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:116
-msgid "Status"
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:124
-msgid "Completed"
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:125
-msgid "Pending"
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:167
-msgid "Discount code %s created for %s. This code can only be used once and will expire in 30 days."
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:190
-msgid "Withdrawal Request"
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:193
-msgid "User %d requested a withdrawal of %s. Request ID: %s. You can process this request in the WooAffiliate admin panel."
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:201
-msgid "Withdrawal request sent to admin. You will be notified when your withdrawal is processed."
-msgstr ""
-
-#: includes/class-wooaffiliate-category-discounts.php:22
-#: includes/class-wooaffiliate-category-discounts.php:49
-msgid "WooAffiliate Settings"
-msgstr ""
-
-#: includes/class-wooaffiliate-category-discounts.php:23
-#: includes/class-wooaffiliate-category-discounts.php:50
-msgid "Set specific commission and discount percentages for this category. If left empty, default values will be used."
-msgstr ""
-
-#: includes/class-wooaffiliate-category-discounts.php:27
-#: includes/class-wooaffiliate-category-discounts.php:57
-msgid "Affiliate Commission Percentage"
-msgstr ""
-
-#: includes/class-wooaffiliate-category-discounts.php:29
-#: includes/class-wooaffiliate-category-discounts.php:59
-msgid "Default commission is %s%%. Enter a value to override for this category."
-msgstr ""
-
-#: includes/class-wooaffiliate-category-discounts.php:33
-#: includes/class-wooaffiliate-category-discounts.php:67
-msgid "Affiliate Discount Percentage"
-msgstr ""
-
-#: includes/class-wooaffiliate-category-discounts.php:35
-#: includes/class-wooaffiliate-category-discounts.php:69
-msgid "Default discount is %s%%. Enter a value to override for this category."
-msgstr ""
-
-#: includes/class-wooaffiliate-admin.php:24
+#: includes/class-wooaffiliate-admin.php:12
 msgid "Affiliate Commissions"
 msgstr ""
 
-#: includes/class-wooaffiliate-admin.php:25
+#: includes/class-wooaffiliate-admin.php:13
+#: includes/class-wooaffiliate-admin.php:35
 msgid "Commissions"
 msgstr ""
 
-#: includes/class-wooaffiliate-admin.php:41
+#: includes/class-wooaffiliate-admin.php:27
 msgid "Withdrawal marked as completed."
 msgstr ""
 
-#: includes/class-wooaffiliate-admin.php:45
+#: includes/class-wooaffiliate-admin.php:31
 msgid "Woo Affiliate Commissions"
 msgstr ""
 
-#: includes/class-wooaffiliate-admin.php:50
+#: includes/class-wooaffiliate-admin.php:36
 msgid "Withdrawal Requests"
 msgstr ""
 
-#: includes/class-wooaffiliate-admin.php:66
+#: includes/class-wooaffiliate-admin.php:54
 msgid "User ID"
 msgstr ""
 
-#: includes/class-wooaffiliate-admin.php:67
+#: includes/class-wooaffiliate-admin.php:55
 msgid "Username"
 msgstr ""
 
-#: includes/class-wooaffiliate-admin.php:68
+#: includes/class-wooaffiliate-admin.php:56
 msgid "Email"
 msgstr ""
 
-#: includes/class-wooaffiliate-admin.php:69
+#: includes/class-wooaffiliate-admin.php:57
 msgid "Commission Balance"
 msgstr ""
 
-#: includes/class-wooaffiliate-admin.php:75
+#: includes/class-wooaffiliate-admin.php:63
 msgid "No commission data found."
 msgstr ""
 
-#: includes/class-wooaffiliate-admin.php:93
+#: includes/class-wooaffiliate-admin.php:85
+#: includes/class-wooaffiliate-commission.php:257
+#: includes/class-wooaffiliate-commission.php:266
+msgid "Request ID"
+msgstr ""
+
+#: includes/class-wooaffiliate-admin.php:86
 msgid "User"
 msgstr ""
 
-#: includes/class-wooaffiliate-admin.php:97
+#: includes/class-wooaffiliate-admin.php:87
+#: includes/class-wooaffiliate-commission.php:258
+#: includes/class-wooaffiliate-commission.php:267
+msgid "Amount"
+msgstr ""
+
+#: includes/class-wooaffiliate-admin.php:88
+#: includes/class-wooaffiliate-commission.php:205
+#: includes/class-wooaffiliate-commission.php:220
+#: includes/class-wooaffiliate-commission.php:259
+#: includes/class-wooaffiliate-commission.php:268
+msgid "Date"
+msgstr ""
+
+#: includes/class-wooaffiliate-admin.php:89
+#: includes/class-wooaffiliate-commission.php:260
+#: includes/class-wooaffiliate-commission.php:269
+msgid "Status"
+msgstr ""
+
+#: includes/class-wooaffiliate-admin.php:90
 msgid "Actions"
 msgstr ""
 
-#: includes/class-wooaffiliate-admin.php:103
+#: includes/class-wooaffiliate-admin.php:96
 msgid "No withdrawal requests found."
 msgstr ""
 
-#: includes/class-wooaffiliate-admin.php:111
+#: includes/class-wooaffiliate-admin.php:104
+#: includes/class-wooaffiliate-commission.php:270
+msgid "Completed"
+msgstr ""
+
+#: includes/class-wooaffiliate-admin.php:104
+#: includes/class-wooaffiliate-commission.php:271
+msgid "Pending"
+msgstr ""
+
+#: includes/class-wooaffiliate-admin.php:107
 msgid "Mark as Completed"
 msgstr ""
 
-#: includes/class-wooaffiliate-discount-display.php:32
-#: includes/class-wooaffiliate-discount-display.php:47
-#: includes/class-wooaffiliate-discount-calculator.php:28
+#: includes/class-wooaffiliate-affiliate.php:81
+msgid "You earned a commission of %s"
+msgstr ""
+
+#: includes/class-wooaffiliate-affiliate.php:84
+msgid ""
+"Hello %s,\n"
+"\n"
+"Good news! You have earned a commission of %s from an order placed through your affiliate link.\n"
+"\n"
+"Order Details:\n"
+"- Order Number: #%s\n"
+"- Order Date: %s\n"
+"- Commission Amount: %s\n"
+"\n"
+"You can view your commission details in your account dashboard.\n"
+"\n"
+"Thank you for being our affiliate partner!\n"
+"\n"
+"Regards,\n"
+"%s"
+msgstr ""
+
+#: includes/class-wooaffiliate-affiliate.php:120
+msgid "Your Affiliate Link"
+msgstr ""
+
+#: includes/class-wooaffiliate-affiliate.php:121
+msgid "Share this link with friends. When they make a purchase, you'll earn commission and they'll get a discount!"
+msgstr ""
+
+#: includes/class-wooaffiliate-affiliate.php:124
+msgid "Copy to Clipboard"
+msgstr ""
+
+#: includes/class-wooaffiliate-affiliate.php:125
+msgid "Copied!"
+msgstr ""
+
+#: includes/class-wooaffiliate-category-discounts.php:18
+#: includes/class-wooaffiliate-category-discounts.php:44
+msgid "WooAffiliate Settings"
+msgstr ""
+
+#: includes/class-wooaffiliate-category-discounts.php:19
+#: includes/class-wooaffiliate-category-discounts.php:45
+msgid "Set specific commission and discount percentages for this category. If left empty, default values will be used."
+msgstr ""
+
+#: includes/class-wooaffiliate-category-discounts.php:23
+#: includes/class-wooaffiliate-category-discounts.php:51
+msgid "Affiliate Commission Percentage"
+msgstr ""
+
+#: includes/class-wooaffiliate-category-discounts.php:25
+#: includes/class-wooaffiliate-category-discounts.php:55
+msgid "Default commission is %s%%. Enter a value to override for this category."
+msgstr ""
+
+#: includes/class-wooaffiliate-category-discounts.php:29
+#: includes/class-wooaffiliate-category-discounts.php:61
+msgid "Affiliate Discount Percentage"
+msgstr ""
+
+#: includes/class-wooaffiliate-category-discounts.php:31
+#: includes/class-wooaffiliate-category-discounts.php:65
+msgid "Default discount is %s%%. Enter a value to override for this category."
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:20
+#: includes/class-wooaffiliate-commission.php:22
+#: includes/class-wooaffiliate-commission.php:53
+msgid "My Commissions"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:57
+msgid "Summary"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:58
+#: includes/class-wooaffiliate-commission.php:191
+msgid "Commission History"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:67
+#: includes/class-wooaffiliate-shortcodes.php:77
+msgid "Current Balance"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:78
+#: includes/class-wooaffiliate-shortcodes.php:84
+msgid "Total Earned"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:79
+msgid "Orders"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:89
+msgid "Convert to Discount Code"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:92
+msgid "You cannot convert to discount code while a withdrawal request is pending."
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:99
+msgid "Request Withdrawal"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:102
+msgid "You already have a pending withdrawal request."
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:106
+msgid "You do not have any commission available for withdrawal or discount conversion."
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:194
+msgid "You have not earned any commissions yet."
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:206
+#: includes/class-wooaffiliate-commission.php:221
+msgid "Order"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:207
+#: includes/class-wooaffiliate-commission.php:224
+msgid "Order Total"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:208
+#: includes/class-wooaffiliate-commission.php:225
+msgid "Commission Amount"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:216
+msgid "Unknown"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:254
+msgid "Your Withdrawal Requests"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:322
+msgid "Discount code %s created for %s. This code can only be used once and will expire in 30 days."
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:347
+msgid "Withdrawal Request"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:349
+msgid "User %s (ID: %d) requested a withdrawal of %s. Request ID: %s. You can process this request in the WooAffiliate admin panel."
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:358
+msgid "Withdrawal request sent to admin. You will be notified when your withdrawal is processed."
+msgstr ""
+
+#: includes/class-wooaffiliate-discount-calculator.php:30
+#: includes/class-wooaffiliate-discount-display.php:20
+#: includes/class-wooaffiliate-discount-display.php:21
+#: includes/class-wooaffiliate-discount-display.php:35
 msgid "Affiliate Discount"
 msgstr ""
 
-#: includes/class-wooaffiliate-discount-display.php:66
+#: includes/class-wooaffiliate-discount-display.php:51
+msgid "a friend"
+msgstr ""
+
+#: includes/class-wooaffiliate-discount-display.php:54
 msgid "You are receiving a %s%% discount through %s's affiliate link!"
 msgstr ""
 
-#: includes/class-wooaffiliate-discount-display.php:71
-msgid "a friend"
+#: includes/class-wooaffiliate-init.php:23
+msgid "Woo Affiliate Settings"
+msgstr ""
+
+#: includes/class-wooaffiliate-init.php:40
+msgid "General Settings"
+msgstr ""
+
+#: includes/class-wooaffiliate-init.php:47
+msgid "Commission Percentage"
+msgstr ""
+
+#: includes/class-wooaffiliate-init.php:55
+msgid "Discount Percentage"
+msgstr ""
+
+#: includes/class-wooaffiliate-init.php:63
+msgid "Cookie Duration (days)"
+msgstr ""
+
+#: includes/class-wooaffiliate-init.php:71
+msgid "Discount Categories"
+msgstr ""
+
+#: includes/class-wooaffiliate-init.php:82
+msgid "Select categories where affiliate discounts apply."
+msgstr ""
+
+#: includes/class-wooaffiliate-shortcodes.php:12
+msgid "Buy Now"
+msgstr ""
+
+#: includes/class-wooaffiliate-shortcodes.php:19
+msgid "Product ID is required"
+msgstr ""
+
+#: includes/class-wooaffiliate-shortcodes.php:25
+msgid "Product not found"
+msgstr ""
+
+#: includes/class-wooaffiliate-shortcodes.php:55
+msgid "You must be logged in as an affiliate to view stats."
+msgstr ""
+
+#: includes/class-wooaffiliate-shortcodes.php:91
+msgid "Referred Orders"
 msgstr ""

@@ -2,7 +2,10 @@
 class WooAffiliate_Affiliate {
 
     public static function init() {
-        add_action('woocommerce_thankyou', [__CLASS__, 'track_affiliate_commission']);
+        add_action('woocommerce_order_status_completed', [__CLASS__, 'track_affiliate_commission']);
+        add_action('woocommerce_order_status_processing', [__CLASS__, 'track_affiliate_commission']);
+        add_action('woocommerce_payment_complete', [__CLASS__, 'track_affiliate_commission']);
+
         add_action('woocommerce_account_dashboard', [__CLASS__, 'display_affiliate_link']);
         add_action('wp_enqueue_scripts', [__CLASS__, 'enqueue_scripts']);
     }
@@ -13,8 +16,22 @@ class WooAffiliate_Affiliate {
             return;
         }
 
+        $commission_awarded = get_post_meta($order_id, '_wooaffiliate_commission_awarded', true);
+        if ($commission_awarded) {
+            return;
+        }
+
+        if (!$order->is_paid()) {
+            return;
+        }
+
         if (isset($_COOKIE['wooaffiliate_referral'])) {
             $referrer_id = intval($_COOKIE['wooaffiliate_referral']);
+
+            if ($referrer_id == $order->get_customer_id()) {
+                return;
+            }
+
             $total_commission = 0;
 
             foreach ($order->get_items() as $item) {
@@ -36,11 +53,58 @@ class WooAffiliate_Affiliate {
             $commission_data[] = array(
                 'order_id' => $order_id,
                 'date' => current_time('timestamp'),
-                'amount' => $total_commission
+                'amount' => $total_commission,
+                'order_total' => $order->get_total()
             );
 
             update_user_meta($referrer_id, 'wooaffiliate_commission_history', $commission_data);
+
+            update_post_meta($order_id, '_wooaffiliate_commission_awarded', true);
+            update_post_meta($order_id, '_wooaffiliate_referrer_id', $referrer_id);
+            update_post_meta($order_id, '_wooaffiliate_commission_amount', $total_commission);
+
+            self::notify_affiliate_of_commission($referrer_id, $order_id, $total_commission);
         }
+    }
+
+    public static function notify_affiliate_of_commission($affiliate_id, $order_id, $commission_amount) {
+        $user = get_user_by('id', $affiliate_id);
+        if (!$user) {
+            return;
+        }
+
+        $order = wc_get_order($order_id);
+        if (!$order) {
+            return;
+        }
+
+        $subject = sprintf(__('You earned a commission of %s', 'wooaffiliate'), wc_price($commission_amount));
+
+        $message = sprintf(
+            __('Hello %s,
+
+Good news! You have earned a commission of %s from an order placed through your affiliate link.
+
+Order Details:
+- Order Number: #%s
+- Order Date: %s
+- Commission Amount: %s
+
+You can view your commission details in your account dashboard.
+
+Thank you for being our affiliate partner!
+
+Regards,
+%s', 'wooaffiliate'),
+            $user->display_name,
+            wc_price($commission_amount),
+            $order->get_order_number(),
+            $order->get_date_created()->date_i18n(get_option('date_format')),
+            wc_price($commission_amount),
+            get_bloginfo('name')
+        );
+
+        wp_mail($user->user_email, $subject, $message);
     }
 
     public static function display_affiliate_link() {
@@ -78,21 +142,97 @@ class WooAffiliate_Affiliate {
 
             wp_add_inline_style('woocommerce-inline', '
                 .wooaffiliate-box {
-                    background: #f8f8f8;
-                    border: 1px solid #ddd;
+                    background: #ffffff;
+                    border: 1px solid #e5e5e5;
                     border-radius: 4px;
-                    padding: 20px;
+                    padding: 25px;
                     margin: 20px 0;
+                    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
                 }
                 .wooaffiliate-link-container {
                     display: flex;
                     flex-wrap: wrap;
                     align-items: center;
+                    gap: 10px;
+                    margin-bottom: 20px;
                 }
                 #wooaffiliate-link {
                     background: #fff;
-                    padding: 10px;
+                    padding: 12px 15px;
+                    border-radius: 4px;
+                    flex: 1;
                     border: 1px solid #ddd;
+                    font-size: 14px;
+                    box-shadow: inset 0 1px 2px rgba(0,0,0,0.07);
+                }
+                .wooaffiliate-copy-btn {
+                    background: #4e9ce6;
+                    color: white;
+                    border: none;
+                    padding: 12px 20px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-weight: 600;
+                    transition: all 0.2s ease;
+                    text-transform: uppercase;
+                    font-size: 13px;
+                    letter-spacing: 0.5px;
+                }
+                .wooaffiliate-copy-btn:hover {
+                    background: #3a87d2;
+                    transform: translateY(-1px);
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                }
+                .wooaffiliate-copy-success {
+                    display: none;
+                    color: #4CAF50;
+                    margin-top: 8px;
+                    font-weight: bold;
+                }
+                .wooaffiliate-tabs {
+                    margin-bottom: 30px !important;
+                }
+                .wooaffiliate-tabs ul {
+                    display: flex;
+                    border-bottom: 1px solid #ddd;
+                    padding: 0;
+                    margin-bottom: 25px;
+                    list-style: none;
+                    flex-wrap: wrap;
+                }
+                .wooaffiliate-tabs li {
+                    margin: 0 10px 0 0;
+                }
+                .wooaffiliate-tabs li a {
+                    display: block;
+                    padding: 12px 20px;
+                    text-decoration: none;
+                    color: #555;
+                    border: 1px solid transparent;
+                    border-bottom: none;
+                    border-radius: 4px 4px 0 0;
+                    font-weight: normal;
+                    transition: all 0.2s ease;
+                }
+                .wooaffiliate-tabs li:hover a {
+                    background: #fafafa;
+                    border-color: #ddd;
+                    color: #333;
+                }
+                .wooaffiliate-tabs li.is-active a {
+                    background: #fff;
+                    color: #333;
+                    border-color: #ddd;
+                    border-bottom-color: #fff;
+                    font-weight: bold;
+                    margin-bottom: -1px;
+                }
+                .wooaffiliate-heading {
+                    margin-bottom: 20px;
+                    border-bottom: 1px solid #eee;
+                    padding-bottom: 10px;
+                    font-size: 18px;
+                    color: #333;
                 }
             ');
         }

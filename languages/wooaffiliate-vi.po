@@ -85,9 +85,21 @@ msgstr "Yêu cầu rút tiền"
 msgid "You already have a pending withdrawal request."
 msgstr "Bạn đã có một yêu cầu rút tiền đang chờ xử lý."
 
+#: includes/class-wooaffiliate-commission.php:84
+msgid "Summary"
+msgstr "Tổng quan"
+
+#: includes/class-wooaffiliate-commission.php:85
+msgid "Commission History"
+msgstr "Lịch sử hoa hồng"
+
 #: includes/class-wooaffiliate-commission.php:85
 msgid "You do not have any commission available for withdrawal or discount conversion."
 msgstr "Bạn không có hoa hồng nào khả dụng để rút tiền hoặc chuyển đổi thành giảm giá."
+
+#: includes/class-wooaffiliate-commission.php:104
+msgid "Current Balance"
+msgstr "Số dư hiện tại"
 
 #: includes/class-wooaffiliate-commission.php:110
 msgid "Your Withdrawal Requests"
@@ -97,9 +109,17 @@ msgstr "Yêu cầu rút tiền của bạn"
 msgid "Request ID"
 msgstr "ID yêu cầu"
 
+#: includes/class-wooaffiliate-commission.php:113
+msgid "Total Earned"
+msgstr "Tổng thu nhập"
+
 #: includes/class-wooaffiliate-commission.php:114
 msgid "Amount"
 msgstr "Số tiền"
+
+#: includes/class-wooaffiliate-commission.php:114
+msgid "Orders"
+msgstr "Đơn hàng"
 
 #: includes/class-wooaffiliate-commission.php:115
 msgid "Date"
