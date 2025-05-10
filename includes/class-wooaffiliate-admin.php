@@ -34,7 +34,7 @@ class WooAffiliate_Admin {
         }
 
         echo '<div class="wrap">';
-        echo '<h1>' . __('Affiliate Commissions', 'wooaffiliate') . '</h1>';
+        echo '<h1>' . __('Woo Affiliate Commissions', 'wooaffiliate') . '</h1>';
 
         // Tabs for different views
         $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'commissions';

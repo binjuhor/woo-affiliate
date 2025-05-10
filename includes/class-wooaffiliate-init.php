@@ -14,8 +14,8 @@ class WooAffiliate_Init {
 
     public static function register_admin_menu() {
         add_menu_page(
-            __('WooAffiliate', 'wooaffiliate'),
-            __('WooAffiliate', 'wooaffiliate'),
+            __('Woo Affiliate', 'wooaffiliate'),
+            __('Woo Affiliate', 'wooaffiliate'),
             'manage_options',
             'wooaffiliate',
             [__CLASS__, 'admin_page'],
@@ -25,7 +25,7 @@ class WooAffiliate_Init {
 
     public static function admin_page() {
         echo '<div class="wrap">';
-        echo '<h1>' . __('WooAffiliate Settings', 'wooaffiliate') . '</h1>';
+        echo '<h1>' . __('Woo Affiliate Settings', 'wooaffiliate') . '</h1>';
         echo '<form method="post" action="options.php">';
         settings_fields('wooaffiliate_settings');
         do_settings_sections('wooaffiliate');
