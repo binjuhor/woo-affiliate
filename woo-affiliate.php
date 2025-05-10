@@ -2,9 +2,11 @@
 /*
 Plugin Name: Woo Affiliate
 Description: Affiliate plugin for WooCommerce.
-Version: 1.0.0
+Version: 1.0.1
 Author: Binjuhor
 Author URI: https://binjuhor.com
+Text Domain: wooaffiliate
+Domain Path: /languages
 */
 
 // Exit if accessed directly
@@ -19,6 +21,14 @@ if (!defined('WOOAFFILIATE_PLUGIN_DIR')) {
 if (!defined('WOOAFFILIATE_PLUGIN_URL')) {
     define('WOOAFFILIATE_PLUGIN_URL', plugin_dir_url(__FILE__));
 }
+
+/**
+ * Load plugin textdomain.
+ */
+function wooaffiliate_load_textdomain() {
+    load_plugin_textdomain('wooaffiliate', false, dirname(plugin_basename(__FILE__)) . '/languages');
+}
+add_action('plugins_loaded', 'wooaffiliate_load_textdomain', 0);
 
 // Include necessary files
 require_once WOOAFFILIATE_PLUGIN_DIR . 'includes/class-wooaffiliate-init.php';
