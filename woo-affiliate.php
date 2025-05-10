@@ -25,6 +25,8 @@ require_once WOOAFFILIATE_PLUGIN_DIR . 'includes/class-wooaffiliate-affiliate.ph
 require_once WOOAFFILIATE_PLUGIN_DIR . 'includes/class-wooaffiliate-commission.php';
 require_once WOOAFFILIATE_PLUGIN_DIR . 'includes/class-wooaffiliate-category-discounts.php';
 require_once WOOAFFILIATE_PLUGIN_DIR . 'includes/class-wooaffiliate-cookie-tracking.php';
+require_once WOOAFFILIATE_PLUGIN_DIR . 'includes/class-wooaffiliate-discount-display.php';
+require_once WOOAFFILIATE_PLUGIN_DIR . 'includes/class-wooaffiliate-discount-calculator.php';
 
 // Initialize the plugin
 add_action('plugins_loaded', ['WooAffiliate_Init', 'init']);
