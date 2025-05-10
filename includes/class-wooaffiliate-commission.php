@@ -3,18 +3,43 @@ class WooAffiliate_Commission {
 
     public static function init() {
         // Add My Account menu for commission management
-        add_action('woocommerce_account_menu_items', [__CLASS__, 'add_commission_menu']);
+        add_action('woocommerce_account_menu_items', [__CLASS__, 'add_commission_menu'], 10);
         add_action('init', [__CLASS__, 'add_commission_endpoint']);
         add_action('woocommerce_account_commission_endpoint', [__CLASS__, 'commission_page']);
+
+        // Register the endpoint to ensure WooCommerce recognizes it
+        add_filter('query_vars', [__CLASS__, 'add_commission_query_var'], 0);
+        add_filter('woocommerce_get_query_vars', [__CLASS__, 'add_commission_wc_query_var']);
     }
 
     public static function add_commission_menu($items) {
-        $items['commission'] = __('My Commissions', 'wooaffiliate');
+        // Insert the commission item before the logout menu item
+        $logout_position = array_search('customer-logout', array_keys($items));
+
+        if ($logout_position !== false) {
+            $items_before_logout = array_slice($items, 0, $logout_position);
+            $items_after_logout = array_slice($items, $logout_position);
+
+            $items = $items_before_logout + ['commission' => __('My Commissions', 'wooaffiliate')] + $items_after_logout;
+        } else {
+            $items['commission'] = __('My Commissions', 'wooaffiliate');
+        }
+
         return $items;
     }
 
     public static function add_commission_endpoint() {
         add_rewrite_endpoint('commission', EP_ROOT | EP_PAGES);
+    }
+
+    public static function add_commission_query_var($vars) {
+        $vars[] = 'commission';
+        return $vars;
+    }
+
+    public static function add_commission_wc_query_var($query_vars) {
+        $query_vars['commission'] = 'commission';
+        return $query_vars;
     }
 
     public static function commission_page() {
@@ -68,11 +93,37 @@ class WooAffiliate_Commission {
 
             echo '<p>' . sprintf(__('Discount code %s created for %s', 'wooaffiliate'), $discount_code, wc_price($amount)) . '</p>';
         } elseif ($action === 'request_withdrawal' && $commission > 0) {
+            // Store withdrawal request in database
+            $request_id = 'WITHDRAW-' . strtoupper(wp_generate_password(6, false));
+
+            $withdrawals = get_option('wooaffiliate_withdrawal_requests', array());
+
+            if (!isset($withdrawals[$user_id])) {
+                $withdrawals[$user_id] = array();
+            }
+
+            $withdrawals[$user_id][$request_id] = array(
+                'amount' => $commission,
+                'date' => time(),
+                'status' => 'pending'
+            );
+
+            update_option('wooaffiliate_withdrawal_requests', $withdrawals);
+
             // Notify admin for manual withdrawal
             $admin_email = get_option('admin_email');
-            wp_mail($admin_email, __('Withdrawal Request', 'wooaffiliate'), sprintf(__('User %d requested a withdrawal of %s', 'wooaffiliate'), $user_id, wc_price($commission)));
+            wp_mail(
+                $admin_email,
+                __('Withdrawal Request', 'wooaffiliate'),
+                sprintf(
+                    __('User %d requested a withdrawal of %s. Request ID: %s. You can process this request in the WooAffiliate admin panel.', 'wooaffiliate'),
+                    $user_id,
+                    wc_price($commission),
+                    $request_id
+                )
+            );
 
-            echo '<p>' . __('Withdrawal request sent to admin.', 'wooaffiliate') . '</p>';
+            echo '<p>' . __('Withdrawal request sent to admin. You will be notified when your withdrawal is processed.', 'wooaffiliate') . '</p>';
         }
     }
 }
