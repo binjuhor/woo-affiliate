@@ -417,20 +417,20 @@ msgstr "Chọn danh mục áp dụng chiết khấu tiếp thị liên kết."
 
 #: includes/class-wooaffiliate-shortcodes.php:12
 msgid "Buy Now"
-msgstr ""
+msgstr "Mua ngay"
 
 #: includes/class-wooaffiliate-shortcodes.php:19
 msgid "Product ID is required"
-msgstr ""
+msgstr "Sản phẩm ID là bắt buộc"
 
 #: includes/class-wooaffiliate-shortcodes.php:25
 msgid "Product not found"
-msgstr ""
+msgstr "Không tìm thấy sản phẩm"
 
 #: includes/class-wooaffiliate-shortcodes.php:55
 msgid "You must be logged in as an affiliate to view stats."
-msgstr ""
+msgstr "Bạn phải đăng nhập với tư cách là một đối tác tiếp thị liên kết để xem thống kê."
 
 #: includes/class-wooaffiliate-shortcodes.php:91
 msgid "Referred Orders"
-msgstr ""
+msgstr "Orders được giới thiệu"
