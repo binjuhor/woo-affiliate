@@ -269,32 +269,32 @@ msgstr ""
 "giá."
 
 #: includes/class-wooaffiliate-commission.php:306
-msgid "Lịch sử hoa hồng"
-msgstr ""
+msgid "Commission History"
+msgstr "Lịch sử hoa hồng"
 
 #: includes/class-wooaffiliate-commission.php:309
-msgid "Bạn chưa kiếm được hoa hồng nào."
-msgstr ""
+msgid "You have no commission history."
+msgstr "Bạn không có lịch sử hoa hồng."
 
 #: includes/class-wooaffiliate-commission.php:320
 #: includes/class-wooaffiliate-commission.php:335
-msgid "Ngày"
-msgstr ""
+msgid "Date"
+msgstr "Ngày"
 
 #: includes/class-wooaffiliate-commission.php:321
 #: includes/class-wooaffiliate-commission.php:336
-msgid "Đơn hàng"
-msgstr ""
+msgid "Order"
+msgstr "Đơn hàng"
 
 #: includes/class-wooaffiliate-commission.php:322
 #: includes/class-wooaffiliate-commission.php:339
-msgid "Tổng đơn hàng"
-msgstr ""
+msgid "Total order"
+msgstr "Tổng đơn hàng"
 
 #: includes/class-wooaffiliate-commission.php:323
 #: includes/class-wooaffiliate-commission.php:340
-msgid "Số tiền hoa hồng"
-msgstr ""
+msgid "Commission amount"
+msgstr "Số tiền hoa hồng"
 
 #: includes/class-wooaffiliate-commission.php:331
 msgid "Không xác định"
@@ -307,22 +307,22 @@ msgstr "Yêu cầu rút tiền của bạn"
 #: includes/class-wooaffiliate-commission.php:404
 #, fuzzy
 msgid "Your Discount Codes"
-msgstr "Chuyển đổi thành mã giảm giá"
+msgstr "Mã giảm giá của bạn"
 
 #: includes/class-wooaffiliate-commission.php:407
 #: includes/class-wooaffiliate-commission.php:428
 msgid "Coupon Code"
-msgstr ""
+msgstr "Mã giảm giá"
 
 #: includes/class-wooaffiliate-commission.php:409
 #: includes/class-wooaffiliate-commission.php:436
 msgid "Created"
-msgstr ""
+msgstr "Tạo ngày"
 
 #: includes/class-wooaffiliate-commission.php:410
 #: includes/class-wooaffiliate-commission.php:437
 msgid "Expires"
-msgstr ""
+msgstr "Hết hạn"
 
 #: includes/class-wooaffiliate-commission.php:431
 msgid "Copy"
@@ -330,11 +330,11 @@ msgstr ""
 
 #: includes/class-wooaffiliate-commission.php:441
 msgid "Used"
-msgstr ""
+msgstr "Đã sử dụng"
 
 #: includes/class-wooaffiliate-commission.php:443
 msgid "Expired"
-msgstr ""
+msgstr "Hết hạn"
 
 #: includes/class-wooaffiliate-commission.php:445
 #, fuzzy

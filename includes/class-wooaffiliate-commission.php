@@ -303,10 +303,10 @@ class WooAffiliate_Commission {
     }
 
     public static function display_commission_history($user_id, $commission_history) {
-        echo '<h3>' . __('Lịch sử hoa hồng', 'wooaffiliate') . '</h3>';
+        echo '<h3>' . __('Commission history', 'wooaffiliate') . '</h3>';
 
         if (empty($commission_history)) {
-            echo '<p>' . __('Bạn chưa kiếm được hoa hồng nào.', 'wooaffiliate') . '</p>';
+            echo '<p>' . __('You have not earned any commissions yet.', 'wooaffiliate') . '</p>';
             return;
         }
 
@@ -317,10 +317,10 @@ class WooAffiliate_Commission {
         echo '<div class="wooaffiliate-commission-table">';
         echo '<table class="woocommerce-orders-table shop_table shop_table_responsive">';
         echo '<thead><tr>';
-        echo '<th>' . __('Ngày', 'wooaffiliate') . '</th>';
-        echo '<th>' . __('Đơn hàng', 'wooaffiliate') . '</th>';
-        echo '<th>' . __('Tổng đơn hàng', 'wooaffiliate') . '</th>';
-        echo '<th>' . __('Số tiền hoa hồng', 'wooaffiliate') . '</th>';
+        echo '<th>' . __('Date', 'wooaffiliate') . '</th>';
+        echo '<th>' . __('Order', 'wooaffiliate') . '</th>';
+        echo '<th>' . __('Total order', 'wooaffiliate') . '</th>';
+        echo '<th>' . __('Commission amount', 'wooaffiliate') . '</th>';
         echo '</tr></thead>';
         echo '<tbody>';
 
@@ -332,12 +332,12 @@ class WooAffiliate_Commission {
             $order_total = isset($entry['order_total']) ? $entry['order_total'] : 0;
 
             echo '<tr>';
-            echo '<td data-title="' . __('Ngày', 'wooaffiliate') . '">' . date_i18n(get_option('date_format') . ' ' . get_option('time_format'), $entry['date']) . '</td>';
-            echo '<td data-title="' . __('Đơn hàng', 'wooaffiliate') . '">' .
+            echo '<td data-title="' . __('Date', 'wooaffiliate') . '">' . date_i18n(get_option('date_format') . ' ' . get_option('time_format'), $entry['date']) . '</td>';
+            echo '<td data-title="' . __('Order', 'wooaffiliate') . '">' .
                 ($order_url ? '<a href="' . esc_url($order_url) . '">#' . esc_html($order_number) . '</a>' : esc_html($order_number)) .
                 '</td>';
-            echo '<td data-title="' . __('Tổng đơn hàng', 'wooaffiliate') . '">' . wc_price($order_total) . '</td>';
-            echo '<td data-title="' . __('Số tiền hoa hồng', 'wooaffiliate') . '">' . wc_price($entry['amount']) . '</td>';
+            echo '<td data-title="' . __('Total order', 'wooaffiliate') . '">' . wc_price($order_total) . '</td>';
+            echo '<td data-title="' . __('Commission amount', 'wooaffiliate') . '">' . wc_price($entry['amount']) . '</td>';
             echo '</tr>';
         }
 
