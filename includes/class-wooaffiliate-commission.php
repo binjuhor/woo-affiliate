@@ -366,30 +366,30 @@ class WooAffiliate_Commission {
             return;
         }
 
-        echo '<h3>' . __('Yêu cầu rút tiền của bạn', 'wooaffiliate') . '</h3>';
+        echo '<h3>' . __('Your Withdrawal Requests', 'wooaffiliate') . '</h3>';
         echo '<table class="woocommerce-orders-table shop_table shop_table_responsive">';
         echo '<thead><tr>';
-        echo '<th>' . __('ID yêu cầu', 'wooaffiliate') . '</th>';
-        echo '<th>' . __('Số tiền', 'wooaffiliate') . '</th>';
-        echo '<th>' . __('Ngày', 'wooaffiliate') . '</th>';
-        echo '<th>' . __('Trạng thái', 'wooaffiliate') . '</th>';
+        echo '<th>' . __('Request ID', 'wooaffiliate') . '</th>';
+        echo '<th>' . __('Amount', 'wooaffiliate') . '</th>';
+        echo '<th>' . __('Date', 'wooaffiliate') . '</th>';
+        echo '<th>' . __('Status', 'wooaffiliate') . '</th>';
         echo '</tr></thead>';
         echo '<tbody>';
 
         foreach ($withdrawals[$user_id] as $request_id => $request) {
             echo '<tr>';
-            echo '<td data-title="' . __('ID yêu cầu', 'wooaffiliate') . '">' . $request_id . '</td>';
-            echo '<td data-title="' . __('Số tiền', 'wooaffiliate') . '">' . wc_price($request['amount']) . '</td>';
-            echo '<td data-title="' . __('Ngày', 'wooaffiliate') . '">' . date_i18n(get_option('date_format'), $request['date']) . '</td>';
-            echo '<td data-title="' . __('Trạng thái', 'wooaffiliate') . '">' . ($request['status'] === 'completed' ?
-                '<span class="wooaffiliate-status-completed">' . __('Hoàn thành', 'wooaffiliate') . '</span>' :
-                '<span class="wooaffiliate-status-pending">' . __('Đang chờ xử lý', 'wooaffiliate') . '</span>'
+            echo '<td data-title="' . __('Request ID', 'wooaffiliate') . '">' . $request_id . '</td>';
+            echo '<td data-title="' . __('Amount', 'wooaffiliate') . '">' . wc_price($request['amount']) . '</td>';
+            echo '<td data-title="' . __('Date', 'wooaffiliate') . '">' . date_i18n(get_option('date_format'), $request['date']) . '</td>';
+            echo '<td data-title="' . __('Status', 'wooaffiliate') . '">' . ($request['status'] === 'completed' ?
+                '<span class="wooaffiliate-status-completed">' . __('Completed', 'wooaffiliate') . '</span>' :
+                '<span class="wooaffiliate-status-pending">' . __('Pending', 'wooaffiliate') . '</span>'
             ) . '</td>';
             echo '</tr>';
         }
 
         echo '</tbody></table>';
-        
+
         // Display user's coupons
         self::display_user_coupons($user_id);
     }

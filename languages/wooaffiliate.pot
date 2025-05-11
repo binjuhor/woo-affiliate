@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-10T13:10:20+00:00\n"
+"POT-Creation-Date: 2025-05-11T04:44:39+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: wooaffiliate\n"
@@ -78,8 +78,8 @@ msgid "No commission data found."
 msgstr ""
 
 #: includes/class-wooaffiliate-admin.php:85
-#: includes/class-wooaffiliate-commission.php:257
-#: includes/class-wooaffiliate-commission.php:266
+#: includes/class-wooaffiliate-commission.php:372
+#: includes/class-wooaffiliate-commission.php:381
 msgid "Request ID"
 msgstr ""
 
@@ -88,22 +88,24 @@ msgid "User"
 msgstr ""
 
 #: includes/class-wooaffiliate-admin.php:87
-#: includes/class-wooaffiliate-commission.php:258
-#: includes/class-wooaffiliate-commission.php:267
+#: includes/class-wooaffiliate-commission.php:373
+#: includes/class-wooaffiliate-commission.php:382
+#: includes/class-wooaffiliate-commission.php:408
+#: includes/class-wooaffiliate-commission.php:435
 msgid "Amount"
 msgstr ""
 
 #: includes/class-wooaffiliate-admin.php:88
-#: includes/class-wooaffiliate-commission.php:205
-#: includes/class-wooaffiliate-commission.php:220
-#: includes/class-wooaffiliate-commission.php:259
-#: includes/class-wooaffiliate-commission.php:268
+#: includes/class-wooaffiliate-commission.php:374
+#: includes/class-wooaffiliate-commission.php:383
 msgid "Date"
 msgstr ""
 
 #: includes/class-wooaffiliate-admin.php:89
-#: includes/class-wooaffiliate-commission.php:260
-#: includes/class-wooaffiliate-commission.php:269
+#: includes/class-wooaffiliate-commission.php:375
+#: includes/class-wooaffiliate-commission.php:384
+#: includes/class-wooaffiliate-commission.php:411
+#: includes/class-wooaffiliate-commission.php:438
 msgid "Status"
 msgstr ""
 
@@ -116,12 +118,12 @@ msgid "No withdrawal requests found."
 msgstr ""
 
 #: includes/class-wooaffiliate-admin.php:104
-#: includes/class-wooaffiliate-commission.php:270
+#: includes/class-wooaffiliate-commission.php:385
 msgid "Completed"
 msgstr ""
 
 #: includes/class-wooaffiliate-admin.php:104
-#: includes/class-wooaffiliate-commission.php:271
+#: includes/class-wooaffiliate-commission.php:386
 msgid "Pending"
 msgstr ""
 
@@ -165,6 +167,7 @@ msgid "Copy to Clipboard"
 msgstr ""
 
 #: includes/class-wooaffiliate-affiliate.php:125
+#: includes/class-wooaffiliate-commission.php:432
 msgid "Copied!"
 msgstr ""
 
@@ -209,7 +212,6 @@ msgid "Summary"
 msgstr ""
 
 #: includes/class-wooaffiliate-commission.php:58
-#: includes/class-wooaffiliate-commission.php:191
 msgid "Commission History"
 msgstr ""
 
@@ -247,46 +249,90 @@ msgstr ""
 msgid "You do not have any commission available for withdrawal or discount conversion."
 msgstr ""
 
-#: includes/class-wooaffiliate-commission.php:194
-msgid "You have not earned any commissions yet."
+#: includes/class-wooaffiliate-commission.php:306
+msgid "Lịch sử hoa hồng"
 msgstr ""
 
-#: includes/class-wooaffiliate-commission.php:206
-#: includes/class-wooaffiliate-commission.php:221
-msgid "Order"
+#: includes/class-wooaffiliate-commission.php:309
+msgid "Bạn chưa kiếm được hoa hồng nào."
 msgstr ""
 
-#: includes/class-wooaffiliate-commission.php:207
-#: includes/class-wooaffiliate-commission.php:224
-msgid "Order Total"
+#: includes/class-wooaffiliate-commission.php:320
+#: includes/class-wooaffiliate-commission.php:335
+msgid "Ngày"
 msgstr ""
 
-#: includes/class-wooaffiliate-commission.php:208
-#: includes/class-wooaffiliate-commission.php:225
-msgid "Commission Amount"
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:216
-msgid "Unknown"
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:254
-msgid "Your Withdrawal Requests"
+#: includes/class-wooaffiliate-commission.php:321
+#: includes/class-wooaffiliate-commission.php:336
+msgid "Đơn hàng"
 msgstr ""
 
 #: includes/class-wooaffiliate-commission.php:322
+#: includes/class-wooaffiliate-commission.php:339
+msgid "Tổng đơn hàng"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:323
+#: includes/class-wooaffiliate-commission.php:340
+msgid "Số tiền hoa hồng"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:331
+msgid "Không xác định"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:369
+msgid "Your Withdrawal Requests"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:404
+msgid "Your Discount Codes"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:407
+#: includes/class-wooaffiliate-commission.php:428
+msgid "Coupon Code"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:409
+#: includes/class-wooaffiliate-commission.php:436
+msgid "Created"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:410
+#: includes/class-wooaffiliate-commission.php:437
+msgid "Expires"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:431
+msgid "Copy"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:441
+msgid "Used"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:443
+msgid "Expired"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:445
+msgid "Active"
+msgstr ""
+
+#: includes/class-wooaffiliate-commission.php:526
 msgid "Discount code %s created for %s. This code can only be used once and will expire in 30 days."
 msgstr ""
 
-#: includes/class-wooaffiliate-commission.php:347
+#: includes/class-wooaffiliate-commission.php:551
 msgid "Withdrawal Request"
 msgstr ""
 
-#: includes/class-wooaffiliate-commission.php:349
+#: includes/class-wooaffiliate-commission.php:553
 msgid "User %s (ID: %d) requested a withdrawal of %s. Request ID: %s. You can process this request in the WooAffiliate admin panel."
 msgstr ""
 
-#: includes/class-wooaffiliate-commission.php:358
+#: includes/class-wooaffiliate-commission.php:562
 msgid "Withdrawal request sent to admin. You will be notified when your withdrawal is processed."
 msgstr ""
 
