@@ -2,7 +2,7 @@
 /*
 Plugin Name: Woo Affiliate
 Description: Affiliate plugin for WooCommerce.
-Version: 1.0.1
+Version: 1.0.2
 Author: Binjuhor
 Author URI: https://binjuhor.com
 Text Domain: wooaffiliate
