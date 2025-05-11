@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-11T04:44:39+00:00\n"
+"POT-Creation-Date: 2025-05-11T08:29:20+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: wooaffiliate\n"
@@ -96,6 +96,8 @@ msgid "Amount"
 msgstr ""
 
 #: includes/class-wooaffiliate-admin.php:88
+#: includes/class-wooaffiliate-commission.php:320
+#: includes/class-wooaffiliate-commission.php:335
 #: includes/class-wooaffiliate-commission.php:374
 #: includes/class-wooaffiliate-commission.php:383
 msgid "Date"
@@ -250,31 +252,26 @@ msgid "You do not have any commission available for withdrawal or discount conve
 msgstr ""
 
 #: includes/class-wooaffiliate-commission.php:306
-msgid "Lịch sử hoa hồng"
+msgid "Commission history"
 msgstr ""
 
 #: includes/class-wooaffiliate-commission.php:309
-msgid "Bạn chưa kiếm được hoa hồng nào."
-msgstr ""
-
-#: includes/class-wooaffiliate-commission.php:320
-#: includes/class-wooaffiliate-commission.php:335
-msgid "Ngày"
+msgid "You have not earned any commissions yet."
 msgstr ""
 
 #: includes/class-wooaffiliate-commission.php:321
 #: includes/class-wooaffiliate-commission.php:336
-msgid "Đơn hàng"
+msgid "Order"
 msgstr ""
 
 #: includes/class-wooaffiliate-commission.php:322
 #: includes/class-wooaffiliate-commission.php:339
-msgid "Tổng đơn hàng"
+msgid "Total order"
 msgstr ""
 
 #: includes/class-wooaffiliate-commission.php:323
 #: includes/class-wooaffiliate-commission.php:340
-msgid "Số tiền hoa hồng"
+msgid "Commission amount"
 msgstr ""
 
 #: includes/class-wooaffiliate-commission.php:331
