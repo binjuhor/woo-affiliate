@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Woo Affiliate 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woo-affiliate\n"
-"POT-Creation-Date: 2025-05-11T04:44:39+00:00\n"
+"POT-Creation-Date: 2025-05-11T08:29:20+00:00\n"
 "PO-Revision-Date: 2025-05-10 10:00+0700\n"
 "Last-Translator: Kai <hi@binjuhor.com>\n"
 "Language-Team: Vietnamese\n"
@@ -97,6 +97,8 @@ msgid "Amount"
 msgstr "Số tiền"
 
 #: includes/class-wooaffiliate-admin.php:88
+#: includes/class-wooaffiliate-commission.php:320
+#: includes/class-wooaffiliate-commission.php:335
 #: includes/class-wooaffiliate-commission.php:374
 #: includes/class-wooaffiliate-commission.php:383
 msgid "Date"
@@ -269,17 +271,14 @@ msgstr ""
 "giá."
 
 #: includes/class-wooaffiliate-commission.php:306
-msgid "Commission History"
+#, fuzzy
+msgid "Commission history"
 msgstr "Lịch sử hoa hồng"
 
 #: includes/class-wooaffiliate-commission.php:309
-msgid "You have no commission history."
+#, fuzzy
+msgid "You have not earned any commissions yet."
 msgstr "Bạn không có lịch sử hoa hồng."
-
-#: includes/class-wooaffiliate-commission.php:320
-#: includes/class-wooaffiliate-commission.php:335
-msgid "Date"
-msgstr "Ngày"
 
 #: includes/class-wooaffiliate-commission.php:321
 #: includes/class-wooaffiliate-commission.php:336
@@ -429,7 +428,9 @@ msgstr "Không tìm thấy sản phẩm"
 
 #: includes/class-wooaffiliate-shortcodes.php:55
 msgid "You must be logged in as an affiliate to view stats."
-msgstr "Bạn phải đăng nhập với tư cách là một đối tác tiếp thị liên kết để xem thống kê."
+msgstr ""
+"Bạn phải đăng nhập với tư cách là một đối tác tiếp thị liên kết để xem thống "
+"kê."
 
 #: includes/class-wooaffiliate-shortcodes.php:91
 msgid "Referred Orders"
