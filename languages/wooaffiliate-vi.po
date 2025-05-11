@@ -2,22 +2,23 @@
 # This file is distributed under the same license as the Woo Affiliate plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Woo Affiliate 1.0.0\n"
+"Project-Id-Version: Woo Affiliate 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woo-affiliate\n"
-"POT-Creation-Date: 2025-05-11T08:29:20+00:00\n"
-"PO-Revision-Date: 2025-05-10 10:00+0700\n"
-"Last-Translator: Kai <hi@binjuhor.com>\n"
-"Language-Team: Vietnamese\n"
+"Last-Translator: Binjuhor <support@binjuhor.com>\n"
+"Language-Team: Vietnamese <vi@li.org>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: WP-CLI 2.7.1\n"
+"POT-Creation-Date: 2025-05-11T08:29:20+00:00\n"
+"PO-Revision-Date: 2025-05-11 10:00+0700\n"
+"X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: wooaffiliate\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #. Plugin Name of the plugin
-#: woo-affiliate.php includes/class-wooaffiliate-init.php:12
+#: woo-affiliate.php
+#: includes/class-wooaffiliate-init.php:12
 #: includes/class-wooaffiliate-init.php:13
 msgid "Woo Affiliate"
 msgstr "Woo Affiliate"
@@ -25,21 +26,21 @@ msgstr "Woo Affiliate"
 #. Description of the plugin
 #: woo-affiliate.php
 msgid "Affiliate plugin for WooCommerce."
-msgstr ""
+msgstr "Plugin tiếp thị liên kết cho WooCommerce."
 
 #. Author of the plugin
 #: woo-affiliate.php
 msgid "Binjuhor"
-msgstr ""
+msgstr "Binjuhor"
 
 #. Author URI of the plugin
 #: woo-affiliate.php
 msgid "https://binjuhor.com"
-msgstr ""
+msgstr "https://binjuhor.com"
 
 #: includes/class-wooaffiliate-admin.php:12
 msgid "Affiliate Commissions"
-msgstr "Hoa hồng tiếp thị liên kết"
+msgstr "Hoa hồng Tiếp thị liên kết"
 
 #: includes/class-wooaffiliate-admin.php:13
 #: includes/class-wooaffiliate-admin.php:35
@@ -48,7 +49,7 @@ msgstr "Hoa hồng"
 
 #: includes/class-wooaffiliate-admin.php:27
 msgid "Withdrawal marked as completed."
-msgstr "Rút tiền đã được đánh dấu là hoàn thành."
+msgstr "Yêu cầu rút tiền đã được đánh dấu là hoàn thành."
 
 #: includes/class-wooaffiliate-admin.php:31
 msgid "Woo Affiliate Commissions"
@@ -123,7 +124,7 @@ msgstr "Không tìm thấy yêu cầu rút tiền nào."
 #: includes/class-wooaffiliate-admin.php:104
 #: includes/class-wooaffiliate-commission.php:385
 msgid "Completed"
-msgstr "Hoàn thành"
+msgstr "Đã hoàn thành"
 
 #: includes/class-wooaffiliate-admin.php:104
 #: includes/class-wooaffiliate-commission.php:386
@@ -132,19 +133,17 @@ msgstr "Đang chờ xử lý"
 
 #: includes/class-wooaffiliate-admin.php:107
 msgid "Mark as Completed"
-msgstr "Đánh dấu là hoàn thành"
+msgstr "Đánh dấu là đã hoàn thành"
 
 #: includes/class-wooaffiliate-affiliate.php:81
-#, fuzzy
 msgid "You earned a commission of %s"
-msgstr "Số dư hoa hồng hiện tại của bạn là: %s"
+msgstr "Bạn đã nhận được hoa hồng %s"
 
 #: includes/class-wooaffiliate-affiliate.php:84
 msgid ""
 "Hello %s,\n"
 "\n"
-"Good news! You have earned a commission of %s from an order placed through "
-"your affiliate link.\n"
+"Good news! You have earned a commission of %s from an order placed through your affiliate link.\n"
 "\n"
 "Order Details:\n"
 "- Order Number: #%s\n"
@@ -158,18 +157,29 @@ msgid ""
 "Regards,\n"
 "%s"
 msgstr ""
+"Xin chào %s,\n"
+"\n"
+"Tin vui! Bạn đã nhận được hoa hồng %s từ đơn hàng thông qua liên kết tiếp thị của bạn.\n"
+"\n"
+"Chi tiết đơn hàng:\n"
+"- Mã đơn hàng: #%s\n"
+"- Ngày đặt hàng: %s\n"
+"- Số tiền hoa hồng: %s\n"
+"\n"
+"Bạn có thể xem chi tiết hoa hồng trong bảng điều khiển tài khoản của mình.\n"
+"\n"
+"Cảm ơn bạn đã là đối tác tiếp thị liên kết của chúng tôi!\n"
+"\n"
+"Trân trọng,\n"
+"%s"
 
 #: includes/class-wooaffiliate-affiliate.php:120
 msgid "Your Affiliate Link"
-msgstr "Liên kết tiếp thị liên kết của bạn"
+msgstr "Liên kết tiếp thị của bạn"
 
 #: includes/class-wooaffiliate-affiliate.php:121
-msgid ""
-"Share this link with friends. When they make a purchase, you'll earn "
-"commission and they'll get a discount!"
-msgstr ""
-"Chia sẻ liên kết này với bạn bè. Khi họ mua hàng, bạn sẽ nhận được hoa hồng "
-"và họ sẽ được giảm giá!"
+msgid "Share this link with friends. When they make a purchase, you'll earn commission and they'll get a discount!"
+msgstr "Chia sẻ liên kết này với bạn bè. Khi họ mua hàng, bạn sẽ nhận được hoa hồng và họ sẽ được giảm giá!"
 
 #: includes/class-wooaffiliate-affiliate.php:124
 msgid "Copy to Clipboard"
@@ -183,16 +193,12 @@ msgstr "Đã sao chép!"
 #: includes/class-wooaffiliate-category-discounts.php:18
 #: includes/class-wooaffiliate-category-discounts.php:44
 msgid "WooAffiliate Settings"
-msgstr "Cài đặt Woo Affiliate"
+msgstr "Cài đặt WooAffiliate"
 
 #: includes/class-wooaffiliate-category-discounts.php:19
 #: includes/class-wooaffiliate-category-discounts.php:45
-msgid ""
-"Set specific commission and discount percentages for this category. If left "
-"empty, default values will be used."
-msgstr ""
-"Đặt phần trăm hoa hồng và chiết khấu cụ thể cho danh mục này. Nếu để trống, "
-"các giá trị mặc định sẽ được sử dụng."
+msgid "Set specific commission and discount percentages for this category. If left empty, default values will be used."
+msgstr "Thiết lập tỷ lệ phần trăm hoa hồng và giảm giá cho danh mục này. Nếu để trống, giá trị mặc định sẽ được sử dụng."
 
 #: includes/class-wooaffiliate-category-discounts.php:23
 #: includes/class-wooaffiliate-category-discounts.php:51
@@ -201,19 +207,18 @@ msgstr "Phần trăm hoa hồng tiếp thị liên kết"
 
 #: includes/class-wooaffiliate-category-discounts.php:25
 #: includes/class-wooaffiliate-category-discounts.php:55
-msgid ""
-"Default commission is %s%%. Enter a value to override for this category."
+msgid "Default commission is %s%%. Enter a value to override for this category."
 msgstr "Hoa hồng mặc định là %s%%. Nhập giá trị để ghi đè cho danh mục này."
 
 #: includes/class-wooaffiliate-category-discounts.php:29
 #: includes/class-wooaffiliate-category-discounts.php:61
 msgid "Affiliate Discount Percentage"
-msgstr "Phần trăm chiết khấu tiếp thị liên kết"
+msgstr "Phần trăm giảm giá tiếp thị liên kết"
 
 #: includes/class-wooaffiliate-category-discounts.php:31
 #: includes/class-wooaffiliate-category-discounts.php:65
 msgid "Default discount is %s%%. Enter a value to override for this category."
-msgstr "Chiết khấu mặc định là %s%%. Nhập giá trị để ghi đè cho danh mục này."
+msgstr "Giảm giá mặc định là %s%%. Nhập giá trị để ghi đè cho danh mục này."
 
 #: includes/class-wooaffiliate-commission.php:20
 #: includes/class-wooaffiliate-commission.php:22
@@ -248,11 +253,8 @@ msgid "Convert to Discount Code"
 msgstr "Chuyển đổi thành mã giảm giá"
 
 #: includes/class-wooaffiliate-commission.php:92
-msgid ""
-"You cannot convert to discount code while a withdrawal request is pending."
-msgstr ""
-"Bạn không thể chuyển đổi thành mã giảm giá khi yêu cầu rút tiền đang chờ xử "
-"lý."
+msgid "You cannot convert to discount code while a withdrawal request is pending."
+msgstr "Bạn không thể chuyển đổi thành mã giảm giá khi một yêu cầu rút tiền đang chờ xử lý."
 
 #: includes/class-wooaffiliate-commission.php:99
 msgid "Request Withdrawal"
@@ -263,22 +265,16 @@ msgid "You already have a pending withdrawal request."
 msgstr "Bạn đã có một yêu cầu rút tiền đang chờ xử lý."
 
 #: includes/class-wooaffiliate-commission.php:106
-msgid ""
-"You do not have any commission available for withdrawal or discount "
-"conversion."
-msgstr ""
-"Bạn không có hoa hồng nào khả dụng để rút tiền hoặc chuyển đổi thành giảm "
-"giá."
+msgid "You do not have any commission available for withdrawal or discount conversion."
+msgstr "Bạn không có hoa hồng nào có sẵn để rút tiền hoặc chuyển đổi thành giảm giá."
 
 #: includes/class-wooaffiliate-commission.php:306
-#, fuzzy
 msgid "Commission history"
 msgstr "Lịch sử hoa hồng"
 
 #: includes/class-wooaffiliate-commission.php:309
-#, fuzzy
 msgid "You have not earned any commissions yet."
-msgstr "Bạn không có lịch sử hoa hồng."
+msgstr "Bạn chưa kiếm được hoa hồng nào."
 
 #: includes/class-wooaffiliate-commission.php:321
 #: includes/class-wooaffiliate-commission.php:336
@@ -297,14 +293,13 @@ msgstr "Số tiền hoa hồng"
 
 #: includes/class-wooaffiliate-commission.php:331
 msgid "Không xác định"
-msgstr ""
+msgstr "Không xác định"
 
 #: includes/class-wooaffiliate-commission.php:369
 msgid "Your Withdrawal Requests"
 msgstr "Yêu cầu rút tiền của bạn"
 
 #: includes/class-wooaffiliate-commission.php:404
-#, fuzzy
 msgid "Your Discount Codes"
 msgstr "Mã giảm giá của bạn"
 
@@ -316,7 +311,7 @@ msgstr "Mã giảm giá"
 #: includes/class-wooaffiliate-commission.php:409
 #: includes/class-wooaffiliate-commission.php:436
 msgid "Created"
-msgstr "Tạo ngày"
+msgstr "Đã tạo"
 
 #: includes/class-wooaffiliate-commission.php:410
 #: includes/class-wooaffiliate-commission.php:437
@@ -325,7 +320,7 @@ msgstr "Hết hạn"
 
 #: includes/class-wooaffiliate-commission.php:431
 msgid "Copy"
-msgstr ""
+msgstr "Sao chép"
 
 #: includes/class-wooaffiliate-commission.php:441
 msgid "Used"
@@ -333,48 +328,34 @@ msgstr "Đã sử dụng"
 
 #: includes/class-wooaffiliate-commission.php:443
 msgid "Expired"
-msgstr "Hết hạn"
+msgstr "Đã hết hạn"
 
 #: includes/class-wooaffiliate-commission.php:445
-#, fuzzy
 msgid "Active"
-msgstr "Hành động"
+msgstr "Hoạt động"
 
 #: includes/class-wooaffiliate-commission.php:526
-msgid ""
-"Discount code %s created for %s. This code can only be used once and will "
-"expire in 30 days."
-msgstr ""
-"Mã giảm giá %s đã được tạo với giá trị %s. Mã này chỉ có thể sử dụng một lần "
-"và sẽ hết hạn sau 30 ngày."
+msgid "Discount code %s created for %s. This code can only be used once and will expire in 30 days."
+msgstr "Mã giảm giá %s đã được tạo cho %s. Mã này chỉ có thể sử dụng một lần và sẽ hết hạn trong 30 ngày."
 
 #: includes/class-wooaffiliate-commission.php:551
 msgid "Withdrawal Request"
 msgstr "Yêu cầu rút tiền"
 
 #: includes/class-wooaffiliate-commission.php:553
-#, fuzzy
-msgid ""
-"User %s (ID: %d) requested a withdrawal of %s. Request ID: %s. You can "
-"process this request in the WooAffiliate admin panel."
-msgstr ""
-"Người dùng %d đã yêu cầu rút tiền với số tiền %s. ID yêu cầu: %s. Bạn có thể "
-"xử lý yêu cầu này trong bảng quản trị Woo Affiliate."
+msgid "User %s (ID: %d) requested a withdrawal of %s. Request ID: %s. You can process this request in the WooAffiliate admin panel."
+msgstr "Người dùng %s (ID: %d) đã yêu cầu rút %s. ID yêu cầu: %s. Bạn có thể xử lý yêu cầu này trong bảng quản trị WooAffiliate."
 
 #: includes/class-wooaffiliate-commission.php:562
-msgid ""
-"Withdrawal request sent to admin. You will be notified when your withdrawal "
-"is processed."
-msgstr ""
-"Yêu cầu rút tiền đã được gửi tới quản trị viên. Bạn sẽ được thông báo khi "
-"yêu cầu rút tiền được xử lý."
+msgid "Withdrawal request sent to admin. You will be notified when your withdrawal is processed."
+msgstr "Yêu cầu rút tiền đã được gửi tới quản trị viên. Bạn sẽ được thông báo khi yêu cầu rút tiền của bạn được xử lý."
 
 #: includes/class-wooaffiliate-discount-calculator.php:30
 #: includes/class-wooaffiliate-discount-display.php:20
 #: includes/class-wooaffiliate-discount-display.php:21
 #: includes/class-wooaffiliate-discount-display.php:35
 msgid "Affiliate Discount"
-msgstr "Chiết khấu tiếp thị liên kết"
+msgstr "Giảm giá tiếp thị liên kết"
 
 #: includes/class-wooaffiliate-discount-display.php:51
 msgid "a friend"
@@ -382,8 +363,7 @@ msgstr "một người bạn"
 
 #: includes/class-wooaffiliate-discount-display.php:54
 msgid "You are receiving a %s%% discount through %s's affiliate link!"
-msgstr ""
-"Bạn đang nhận được chiết khấu %s%% thông qua liên kết giới thiệu của %s!"
+msgstr "Bạn đang nhận được giảm giá %s%% thông qua liên kết tiếp thị của %s!"
 
 #: includes/class-wooaffiliate-init.php:23
 msgid "Woo Affiliate Settings"
@@ -399,20 +379,19 @@ msgstr "Phần trăm hoa hồng"
 
 #: includes/class-wooaffiliate-init.php:55
 msgid "Discount Percentage"
-msgstr "Phần trăm chiết khấu"
+msgstr "Phần trăm giảm giá"
 
 #: includes/class-wooaffiliate-init.php:63
 msgid "Cookie Duration (days)"
 msgstr "Thời hạn Cookie (ngày)"
 
 #: includes/class-wooaffiliate-init.php:71
-#, fuzzy
 msgid "Discount Categories"
-msgstr "Phần trăm chiết khấu"
+msgstr "Danh mục giảm giá"
 
 #: includes/class-wooaffiliate-init.php:82
 msgid "Select categories where affiliate discounts apply."
-msgstr "Chọn danh mục áp dụng chiết khấu tiếp thị liên kết."
+msgstr "Chọn danh mục áp dụng giảm giá tiếp thị liên kết."
 
 #: includes/class-wooaffiliate-shortcodes.php:12
 msgid "Buy Now"
@@ -420,7 +399,7 @@ msgstr "Mua ngay"
 
 #: includes/class-wooaffiliate-shortcodes.php:19
 msgid "Product ID is required"
-msgstr "Sản phẩm ID là bắt buộc"
+msgstr "ID sản phẩm là bắt buộc"
 
 #: includes/class-wooaffiliate-shortcodes.php:25
 msgid "Product not found"
@@ -428,10 +407,8 @@ msgstr "Không tìm thấy sản phẩm"
 
 #: includes/class-wooaffiliate-shortcodes.php:55
 msgid "You must be logged in as an affiliate to view stats."
-msgstr ""
-"Bạn phải đăng nhập với tư cách là một đối tác tiếp thị liên kết để xem thống "
-"kê."
+msgstr "Bạn phải đăng nhập với tư cách là tiếp thị liên kết để xem thống kê."
 
 #: includes/class-wooaffiliate-shortcodes.php:91
 msgid "Referred Orders"
-msgstr "Orders được giới thiệu"
+msgstr "Đơn hàng giới thiệu"
